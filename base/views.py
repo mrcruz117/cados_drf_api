@@ -49,10 +49,31 @@ def advocate_list(request):
 
 
 class AdvocateDetail(APIView):
+    def get_object(self, id):
+        try:
+            return Advocate.object.get(id=id)
+        except Advocate.DoesNotExist:
+            raise Advocate
+
     def get(self, request, id):
         advocate = Advocate.objects.get(id=id)
         serializer = AdvocateSerializer(advocate, many=False)
         return Response(serializer.data)
+
+    def put(self, request, id):
+        advocate = Advocate.objects.get(id=id)
+
+        advocate.username = request.data['username']
+        advocate.bio = request.data['bio']
+        advocate.save()
+
+        serializer = AdvocateSerializer(advocate, many=False)
+        return Response(serializer.data)
+
+    def delete(self, request, id):
+        advocate = Advocate.objects.get(id=id)
+        advocate.delete()
+        return Response('User deleted')
 
 # @api_view(['GET', 'PUT', 'DELETE'])
 # def advocate_detail(request, id):
