@@ -53,7 +53,7 @@ class AdvocateDetail(APIView):
         try:
             return Advocate.objects.get(id=id)
         except Advocate.DoesNotExist:
-            raise Advocate
+            raise Advocate.DoesNotExist
 
     def get(self, request, id):
         # advocate = Advocate.objects.get(id=id)
