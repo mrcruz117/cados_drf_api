@@ -19,7 +19,7 @@ from .serializers import AdvocateSerializer, CompanySerializer
 
 @api_view(['GET'])
 def endpoints(request):
-    data = ['/advocates', '/advocates/:username']
+    data = ['/advocates', '/advocates/:username', '/companies/']
     return Response(data)
 
 
