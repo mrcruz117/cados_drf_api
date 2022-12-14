@@ -3,7 +3,7 @@
 import os
 import sys
 
-
+# 7.53
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'cados_api.settings')
