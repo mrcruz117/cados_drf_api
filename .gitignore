@@ -6,6 +6,7 @@ __pycache__/
 # C extensions
 *.so
 
+# why do I need all of these?
 # Distribution / packaging
 .Python
 build/
